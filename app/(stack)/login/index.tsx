@@ -41,14 +41,14 @@ const Login = () => {
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({ item }) => (
                         <View>
-                            <Text>{item.title}</Text>
+                            <Text style={globalStyle.label}>{item.title}</Text>
                         </View>
                     )}
                 />
-                <TouchableOpacity onPress={()=>router.push(`/`)}>
-                    <Text>Agregar tarea</Text>
+                <TouchableOpacity style={globalStyle.button} onPress={()=>router.push(`/`)}>
+                    <Text style={globalStyle.buttonText}>Agregar tarea</Text>
                 </TouchableOpacity>
-                {/* <Text style={globalStyle.h2}>Iniciar Sesion</Text>
+                 <Text style={globalStyle.h2}>Iniciar Sesion</Text>
                 <View style={{ display: 'flex', flexDirection: 'row', marginBottom: 20 }}>
                     <Text style={globalStyle.label}>Nombre: </Text>
                     <TextInput
@@ -73,7 +73,7 @@ const Login = () => {
                     onPress={handleLogin}
                 >
                     <Text style={globalStyle.buttonText}>Iniciar Sesion</Text>
-                </TouchableOpacity> */}
+                </TouchableOpacity> 
             </SafeAreaView>
         </SafeAreaProvider>
     )
