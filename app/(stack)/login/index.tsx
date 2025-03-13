@@ -1,9 +1,10 @@
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import React from 'react'
 import globalStyle from '@/app/style/globalStyle'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import { create } from 'zustand'
-import { router } from 'expo-router'
+import { router, useRouter } from 'expo-router'
+import useTaskStore from '@/store/taskStore'
 type LoginStore = {
     name: string
     email: string
@@ -29,11 +30,25 @@ const Login = () => {
         setName('');
         setEmail('');
     }
+    const {tasks} = useTaskStore();
+    const router = useRouter();
 
     return (
         <SafeAreaProvider>
             <SafeAreaView style={globalStyle.container}>
-                <Text style={globalStyle.h2}>Iniciar Sesion</Text>
+                <FlatList
+                    data={tasks}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={({ item }) => (
+                        <View>
+                            <Text>{item.title}</Text>
+                        </View>
+                    )}
+                />
+                <TouchableOpacity onPress={()=>router.push(`/`)}>
+                    <Text>Agregar tarea</Text>
+                </TouchableOpacity>
+                {/* <Text style={globalStyle.h2}>Iniciar Sesion</Text>
                 <View style={{ display: 'flex', flexDirection: 'row', marginBottom: 20 }}>
                     <Text style={globalStyle.label}>Nombre: </Text>
                     <TextInput
@@ -58,7 +73,7 @@ const Login = () => {
                     onPress={handleLogin}
                 >
                     <Text style={globalStyle.buttonText}>Iniciar Sesion</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </SafeAreaView>
         </SafeAreaProvider>
     )

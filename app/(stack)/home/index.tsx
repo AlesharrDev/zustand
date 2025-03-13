@@ -5,6 +5,7 @@ import { useLocalSearchParams } from 'expo-router'
 
 const Home = () => {
     const {name,email}= useLocalSearchParams();
+    
   return (
     <View style={globalStyle.container} >
       <Text>this is de home</Text>

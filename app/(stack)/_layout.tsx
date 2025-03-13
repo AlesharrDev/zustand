@@ -9,6 +9,7 @@ const Stacklayout = () => {
     }}>
       <Stack.Screen name="login/index" options={{ headerShown: false }} />
       <Stack.Screen name="home/index" options={{ title: "Perfil" }} />
+      <Stack.Screen name="addtask/index" options={{ title: "tareas" }} />
     </Stack>
   )
 }
