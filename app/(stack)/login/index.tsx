@@ -26,8 +26,10 @@ const Login = () => {
             pathname: '/home',
             params: { name, email }
         })
+        setName('');
+        setEmail('');
     }
-    
+
     return (
         <SafeAreaProvider>
             <SafeAreaView style={globalStyle.container}>

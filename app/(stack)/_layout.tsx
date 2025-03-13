@@ -4,9 +4,11 @@ import { Stack } from 'expo-router'
 
 const Stacklayout = () => {
   return (
-    <Stack screenOptions={{}}>
+    <Stack screenOptions={{
+        
+    }}>
       <Stack.Screen name="login/index" options={{ headerShown: false }} />
-      <Stack.Screen name="home/index" options={{ title: "producto" }} />
+      <Stack.Screen name="home/index" options={{ title: "Perfil" }} />
     </Stack>
   )
 }
